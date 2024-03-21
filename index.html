@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS - ACP</title>
+
+    <!-- Favicon -->
+    
+	<!-- <link rel="manifest" href="ico/site.webmanifest"> -->
+	
+	<link rel="stylesheet" type="text/css" href="lib/alert/style.css">
+	<link rel="stylesheet" type="text/css" href="lib/confirm/style.css">
+	<link rel="stylesheet" type="text/css" href="lib/prompt/style.css">
+
+	<link rel="stylesheet" type="text/css" href="main_style.css">
+
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<h1>HX_JS_ACP</h1>
+<h1>Costum Alert, Confirm, Prompt</h1>
+<!-- <br><br><br><br><br><br> -->
+<div class="btn_box_">
+	<button class="btn_" id="c_alert">Alert</button>
+	<button class="btn_" id="c_confirm">Confirm</button>
+	<button class="btn_" id="c_prompt">Prompt</button>
+</div>
+
+<script src="lib/alert/index.js"></script>
+<script src="lib/confirm/index.js"></script>
+<script src="lib/prompt/index.js"></script>
+<script type="text/javascript">
+
+document.getElementById('c_alert').onclick =()=>
+{
+	hx_cust_alert_show("Are you 18 year old ?", 
+		function(result) 
+		{
+    		if (result) 
+    		{
+    			console.log("You pressed Yes.");
+    		} 
+    		else 
+    		{
+    			console.log("You pressed No.");
+    		}
+    	}
+    );
+}
+document.getElementById('c_confirm').onclick =()=>
+{
+	hx_cust_confirm_show("QRCG_2.0","Are you 18 year old ?", function(result) 
+    {
+        if (result) 
+        {
+            console.log("You pressed Ok.");
+        } 
+        else 
+        {
+            console.log("You pressed Cancel.");
+        }
+    });
+}
+document.getElementById('c_prompt').onclick =()=>
+{
+	hx_cust_prompt_show('EDIT_UPI','UPI_ID',(result1,result2)=>{console.log(result1,' -- ',result2)});
+
+}
+</script>
+</body>
+
+</html>
